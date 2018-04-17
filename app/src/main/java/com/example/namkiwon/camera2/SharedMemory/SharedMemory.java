@@ -1,4 +1,6 @@
-package com.example.namkiwon.camera2;
+package com.example.namkiwon.camera2.SharedMemory;
+
+import com.example.namkiwon.camera2.Views.OverLayView;
 
 /**
  * Created by namkiwon on 2018. 3. 20..

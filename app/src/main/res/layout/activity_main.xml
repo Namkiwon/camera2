@@ -7,15 +7,18 @@
 
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
 
-    <com.example.namkiwon.camera2.AutoFitTextureView
+    <com.example.namkiwon.camera2.Views.AutoFitTextureView
         android:id="@+id/cameraTextureView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
+
+
     <Button
-        android:id="@+id/capture"
+        android:id="@+id/imgSerchByGoogle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="take picture"
@@ -23,6 +26,19 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="21dp"
         />
+
+    <LinearLayout
+        android:layout_width="210dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/imgSerchBtnPager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never" />
+    </LinearLayout>
+
+
 
     <RelativeLayout
         android:id="@+id/surface"

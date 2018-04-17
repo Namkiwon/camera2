@@ -1,8 +1,11 @@
-package com.example.namkiwon.camera2;
+package com.example.namkiwon.camera2.DetectObject;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.Log;
+
+import com.example.namkiwon.camera2.TensorFlowMobile.Classifier;
+import com.example.namkiwon.camera2.TensorFlowMobile.TensorFlowObjectDetectionAPIModel;
 
 import java.util.List;
 import java.util.concurrent.Executor;
@@ -14,11 +17,13 @@ import java.util.concurrent.Executors;
 
 public class ObjectDetector extends Object {
     private static final int INPUT_SIZE = 1440; //인식 시킬 이미지 사이즈
-    private static final int  INPUT_SIZE_WIDTH = 1440/10; //인식 시킬 이미지 사이즈
-    private static final int INPUT_SIZE_HEIGHT = 2072/10; //인식 시킬 이미지 사이즈
+    private static  final int  INPUT_SIZE_WIDTH = 1440/10; //인식 시킬 이미지 사이즈
+    private static final int INPUT_SIZE_HEIGHT = 2292/10; //인식 시킬 이미지 사이즈
     private static final int IMAGE_MEAN = 0; //
     private static final float IMAGE_STD = 255.0f;
     private Context context;
+    private int width;
+    private int height;
 //    private static final String INPUT_NAME = "";
 //    private static final String OUTPUT_NAME = "";
 
@@ -32,6 +37,9 @@ public class ObjectDetector extends Object {
 
     public ObjectDetector(Context context , int INPUT_SIZE_WIDTH, int INPUT_SIZE_HEIGHT){
         this.context = context;
+        width = INPUT_SIZE_WIDTH/10;
+        height = INPUT_SIZE_HEIGHT/10;
+
         //텐서플로우 초기화 및 그래프파일 메모리에 탑재
         initTensorFlowAndLoadModel();
 

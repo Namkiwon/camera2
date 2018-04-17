@@ -1,4 +1,4 @@
-package com.example.namkiwon.camera2;
+package com.example.namkiwon.camera2.Views;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -55,12 +55,12 @@ public class OverLayView extends View {
      * @param event
      * @return
      */
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            Toast.makeText(super.getContext(), "MotionEvent.ACTION_DOWN : " +
-                    event.getX() + ", " + event.getY(), Toast.LENGTH_SHORT).show();
-        }
-        return super.onTouchEvent(event);
-    }
+//    @Override
+//    public boolean onTouchEvent(MotionEvent event) {
+//        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+//            Toast.makeText(super.getContext(), "MotionEvent.ACTION_DOWN : " +
+//                    event.getX() + ", " + event.getY(), Toast.LENGTH_SHORT).show();
+//        }
+//        return super.onTouchEvent(event);
+//    }
 }

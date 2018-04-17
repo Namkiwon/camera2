@@ -3,7 +3,6 @@ package com.example.namkiwon.camera2;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -21,17 +20,11 @@ import android.hardware.camera2.params.StreamConfigurationMap;
 import android.hardware.camera2.TotalCaptureResult;
 import android.media.Image;
 import android.media.ImageReader;
-import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.util.Size;
 import android.util.SparseIntArray;
@@ -40,24 +33,24 @@ import android.view.TextureView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.namkiwon.camera2.DetectObject.DetectTask;
+import com.example.namkiwon.camera2.TensorFlowMobile.Classifier;
+import com.example.namkiwon.camera2.DetectObject.ObjectDetector;
+import com.example.namkiwon.camera2.Views.AutoFitTextureView;
+import com.example.namkiwon.camera2.Views.OverLayView;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.net.URI;
-import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.ResourceBundle;
 import java.util.concurrent.Semaphore;
-
-import static android.support.v4.app.ActivityCompat.requestPermissions;
-import static android.support.v4.app.ActivityCompat.shouldShowRequestPermissionRationale;
 
 /**
  * Created by namkiwon on 2018. 3. 16..
@@ -194,8 +187,8 @@ public class Preview extends Thread {
             isCameraOpen = true;
             if(mTextureView.isAvailable()){
                 Log.e(TAG, "Detect Thread Start");
-                detectTask = new DetectTask(mTextureView,mContext,surfaceLayout);
-                detectTask.execute();
+//                detectTask = new DetectTask(mTextureView,mContext,surfaceLayout);
+//                detectTask.execute();
 
             }
         }
@@ -427,7 +420,7 @@ public class Preview extends Thread {
                         image = reader.acquireLatestImage();
                         ByteBuffer buffer = image.getPlanes()[0].getBuffer();
                         byte[] bytes = new byte[buffer.capacity()];
-
+                        
                         Log.d("byte lengh",String.valueOf(bytes.length));
                         Bitmap cropedBitmap = cropImage(image);
 //                        Bitmap oldBitmap = convertYUV420888ToNV21(image);

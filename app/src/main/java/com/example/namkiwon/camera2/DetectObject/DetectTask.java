@@ -1,4 +1,4 @@
-package com.example.namkiwon.camera2;
+package com.example.namkiwon.camera2.DetectObject;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -9,7 +9,10 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.RelativeLayout;
 
-import org.tensorflow.Session;
+import com.example.namkiwon.camera2.TensorFlowMobile.Classifier;
+import com.example.namkiwon.camera2.DetectObject.ObjectDetector;
+import com.example.namkiwon.camera2.Views.AutoFitTextureView;
+import com.example.namkiwon.camera2.Views.OverLayView;
 
 import java.util.List;
 

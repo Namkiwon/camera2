@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.namkiwon.camera2;
+package com.example.namkiwon.camera2.Views;
 
 import android.content.Context;
 import android.util.AttributeSet;
